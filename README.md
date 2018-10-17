@@ -117,7 +117,7 @@ days_before_start ?
 
 ![alt text](https://devman.org/assets/images/7_40__data_flow.png)
 
-=======
+
 Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/), что облегчит 
 тестирование и повторное использование.
 
@@ -125,4 +125,4 @@ days_before_start ?
 повсеместно, в самых разных программах: от небольших скриптов до серьезных и 
 крупных проектов. Это один из базовых приемов, нужно уверенно им владеть.
 
->>>>>>> origin/urls
+
