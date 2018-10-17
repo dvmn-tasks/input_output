@@ -115,7 +115,7 @@ days_before_start ?
 2)от формата вывода в файл.
 
 
-[alt text](https://devman.org/assets/images/7_40__data_flow.png)
+(https://devman.org/assets/images/7_40__data_flow.png)
 
 =======
 Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/), что облегчит 
