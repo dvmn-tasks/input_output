@@ -56,19 +56,19 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 
 ## Пойдем дальше. Код другой функции:
 
-def get_course_info(html):
-    # ...  parsing logic
+    def get_course_info(html):
+        # ...  parsing logic
 
-    rating = soup.find_all('div', attrs={'class': 'ratings-text'})
-    if rating:  # check if rating is not empty list
-        rating = rating[0].contents[0].text
-    else:
-        # we wanna be user-friendly, with nice output to xlsx
-        rating = "No rating yet"
+        rating = soup.find_all('div', attrs={'class': 'ratings-text'})
+        if rating:  # check if rating is not empty list
+            rating = rating[0].contents[0].text
+        else:
+            # we wanna be user-friendly, with nice output to xlsx
+            rating = "No rating yet"
 
-    # .... parsing logic
+        # .... parsing logic
 
-    return course_data
+        return course_data
 
 ## Что может произойти с кодом дальше?
 
@@ -112,7 +112,7 @@ days_before_start ?
 1)от источника данных;
 2)от формата вывода в файл.
 
-[alt text](https://devman.org/assets/images/7_40__data_flow.png)
+[![alt text]](https://devman.org/assets/images/7_40__data_flow.png)
 
 
 Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/), что облегчит 
