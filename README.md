@@ -20,14 +20,15 @@
 По условию задачи нужно скачать из сети данных об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
-def get_courses_list(courses_url):
-    html = fetch_html(courses_url)
-    if html:
-        # .... parsing logic
-        return courses_list
-    else:
-        print("can't load list of courses")
-        exit()
+    def get_courses_list(courses_url):
+        html = fetch_html(courses_url)
+        if html:
+            # .... parsing logic
+            return courses_list
+        else:
+            print("can't load list of courses")
+            exit()
+
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
@@ -82,17 +83,18 @@ rating yet" можно переместить туда где данные по�
 
 ## Та же функция, часть вторая, последняя:
 
-def get_course_info(html):
-    # ... more parsing logic is here
+    def get_course_info(html):
+        # ... more parsing logic is here
 
-    # number prefix is usefull for simple sorting data before output to xlsx
-    return {
-        '1_title': title,
-        '2_date': start_date,
-        '3_language': language,
-        '4_weeks': duration,
-        "5_rating": rating
-    }
+        # number prefix is usefull for simple sorting data before output to xlsx
+        return {
+            '1_title': title,
+            '2_date': start_date,
+            '3_language': language,
+            '4_weeks': duration,
+            "5_rating": rating
+        }
+
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
@@ -112,7 +114,7 @@ days_before_start ?
 1)от источника данных;
 2)от формата вывода в файл.
 
-[![alt text]](https://devman.org/assets/images/7_40__data_flow.png)
+[![alt text] (https://devman.org/assets/images/7_40__data_flow.png)](https://devman.org/assets/images/7_40__data_flow.png)
 
 
 Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/), что облегчит 
