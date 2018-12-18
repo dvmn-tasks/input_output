@@ -117,8 +117,8 @@ days_before_start ?
 
 В результате мы пришли к ситуации, когда логика обработки данных слабо зависит:
 
-0. от источника данных;  
-0. от формата вывода в файл.
+1. от источника данных;  
+2. от формата вывода в файл.
 
 ![alt text](https://devman.org/assets/images/7_40__data_flow.png)
 Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/), что облегчит 
