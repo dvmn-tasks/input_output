@@ -22,14 +22,15 @@
 По условию задачи нужно скачать из сети данных об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
-def get_courses_list(courses_url):
+    def get_courses_list(courses_url):    
     html = fetch_html(courses_url)
-    if html:
-        # .... parsing logic
-        return courses_list
-    else:
-        print("can't load list of courses")
-        exit()
+        if html:
+            # .... parsing logic
+            return courses_list
+        else:
+            print("can't load list of courses")
+            exit()
+
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
@@ -58,19 +59,18 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 
 Пойдем дальше. Код другой функции:
 
-def get_course_info(html):
-    # ...  parsing logic
+    def get_course_info(html):
+        # ...  parsing logic
+        rating = soup.find_all('div', attrs={'class': 
+    'ratings-text'})
+        if rating:  # check if rating is not empty list
+            rating = rating[0].contents[0].text
+        else:
+            # we wanna be user-friendly, with nice output to xlsx
+            rating = "No rating yet"
+            # .... parsing logic
 
-    rating = soup.find_all('div', attrs={'class': 'ratings-text'})
-    if rating:  # check if rating is not empty list
-        rating = rating[0].contents[0].text
-    else:
-        # we wanna be user-friendly, with nice output to xlsx
-        rating = "No rating yet"
-
-    # .... parsing logic
-
-    return course_data
+        return course_data
 
 Что может произойти с кодом дальше?
 
@@ -84,17 +84,18 @@ rating yet" можно переместить туда где данные по�
 
 Та же функция, часть вторая, последняя:
 
-def get_course_info(html):
-    # ... more parsing logic is here
-
-    # number prefix is usefull for simple sorting data before output to xlsx
-    return {
+    def get_course_info(html):
+        # ... more parsing logic is here
+        # number prefix is usefull for simple sorting 
+    data before output to xlsx
+        return {
         '1_title': title,
         '2_date': start_date,
         '3_language': language,
         '4_weeks': duration,
         "5_rating": rating
-    }
+        }
+
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
@@ -102,8 +103,11 @@ days_before_start ?
 Кроме того, наперед известно, что пользовательский интерфейс — будь то вывод в 
 консоль или запись в файл — меняется очень часто. Было бы удобно собрать все, 
 что относится к форматированию вывода в одном месте. Например, всю логику 
-выгрузки в xlsx поместить в def fill_xlsx(workbook, courses):, а вывод в 
-консоль собрать внутри if __name__=='__main__':. Удастся избежать вычитывания 
+выгрузки в xlsx поместить в 
+```python
+def fill_xlsx(workbook, courses):
+```
+а вывод в консоль собрать внутри ```if __name__=='__main__':``` Удастся избежать вычитывания 
 и повторной отладки всей программы от начала до конца, ведь изменения локальны 
 и изолированы.
 
