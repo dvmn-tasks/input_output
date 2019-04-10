@@ -21,7 +21,7 @@
 
 По условию задачи нужно скачать из сети данных об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
-```
+```python
 def get_courses_list(courses_url):
     html = fetch_html(courses_url)
     if html:
@@ -55,12 +55,12 @@ def get_courses_list(courses_url):
 диске.
 
 Ага, значит вызывать `fetch_html()` внутри `def get_courses_list` не такая уж 
-хорошая идея. Жить будет легче если передать в `def get_courses_list строку` с 
+хорошая идея. Жить будет легче если передать в `def get_courses_list` строку с 
 HTML разметкой вместо `courses_url`. Вуаля, мы решили проблемы еще до их 
 появления на горизонте!
 
 Пойдем дальше. Код другой функции:
-```
+```python
 def get_course_info(html):
     # ...  parsing logic
 
@@ -87,7 +87,7 @@ def get_course_info(html):
 rating yet" можно переместить туда где данные подготавливаются к выводу в xlsx.
 
  Та же функция, часть вторая, последняя:
-```
+```python
 def get_course_info(html):
     # ... more parsing logic is here
 
