@@ -59,8 +59,8 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 появления на горизонте!
 
 Пойдем дальше. Код другой функции:
-```
-def get_course_info(html):
+
+```def get_course_info(html):
     # ...  parsing logic
 
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
@@ -73,7 +73,7 @@ def get_course_info(html):
     # .... parsing logic
 
     return course_data
-    ```
+```
 Что может произойти с кодом дальше?
 
 1. Если рейтинга нет — надо искать его на другом сайте.
@@ -98,7 +98,7 @@ def get_course_info(html):
         '4_weeks': duration,
         "5_rating": rating
     }
-    ```
+```
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
@@ -112,7 +112,6 @@ days_before_start ?
 и изолированы.
 
 Вместо заключения
-
 
 В результате мы пришли к ситуации, когда логика обработки данных слабо зависит:
 
