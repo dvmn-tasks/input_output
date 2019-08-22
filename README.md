@@ -108,9 +108,11 @@ days_before_start ?
 1)от источника данных;
 2)от формата вывода в файл.
 
-<<<<<<< Updated upstream
-![alt text](https://devman.org/assets/images/7_40__data_flow.png)
-=======
+
+<div>
+	<img src="https://devman.org/assets/images/7_40__data_flow.png" alt="picture">
+</div>
+
 
 Кроме того, часть кода удалось превратить в <a href="https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/">чистые функции</a>, что облегчит тестирование и повторное использование.
 
