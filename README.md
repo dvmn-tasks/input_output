@@ -85,7 +85,7 @@ rating yet" можно переместить туда где данные по�
 
 Та же функция, часть вторая, последняя:
 
-def get_course_info(html):
+```def get_course_info(html):
     # ... more parsing logic is here
 
     # number prefix is usefull for simple sorting data before output to xlsx
@@ -95,7 +95,7 @@ def get_course_info(html):
         '3_language': language,
         '4_weeks': duration,
         "5_rating": rating
-    }
+    }```
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
