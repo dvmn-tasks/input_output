@@ -65,16 +65,13 @@ HTML разметкой вместо `courses_url`. Вуаля, мы решил�
  ```python
  def get_course_info(html):
     # ...  parsing logic
-
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
     if rating:  # check if rating is not empty list
         rating = rating[0].contents[0].text
     else:
         # we wanna be user-friendly, with nice output to xlsx
         rating = "No rating yet"
-
     # .... parsing logic
-
     return course_data 
 ```
 ### Что может произойти с кодом дальше?
@@ -93,7 +90,6 @@ rating yet" можно переместить туда где данные по�
 ```python
 def get_course_info(html):
     # ... more parsing logic is here
-
     # number prefix is usefull for simple sorting data before output to xlsx
     return {
         '1_title': title,
