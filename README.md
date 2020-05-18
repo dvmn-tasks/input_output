@@ -21,23 +21,25 @@
 
 По условию задачи нужно скачать из сети данных об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
-
-    def get_courses_list(courses_url):
-        html = fetch_html(courses_url)
+```python
+def get_courses_list(courses_url):
+	html = fetch_html(courses_url)
         if html:
             # .... parsing logic
             return courses_list
         else:
             print("can't load list of courses")
             exit()
+```
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
  1. В случае сетевой ошибки взять паузу в 10 секунд и повторить попытку, затем 
-	подождать еще 30 секунд и так далее.
+	подождать еще 30 секунд и так далее.	
  2. В случае если адрес недоступен - постучаться по другому url в зеркало сайта.
  3. В случае ошибки сделать запись в лог и взять данные из ранее подготовленного 
 	кеша.
+	
 Как все это сделать когда def get_courses_list сама завершает программу ?! От 
 вызова exit() надо отказаться. Можно выбросить исключение и таким образом 
 сообщить о проблеме внешнему коду, пускай там разбираются.
@@ -51,15 +53,16 @@
  1. Отладить и покрыть тестами парсер HTML страницы.
  2. Ускорить работу скрипта, хранить ранее скачанные страницы в кеше на жестком 
 	диске.
+	
 Ага, значит вызывать fetch_html() внутри def get_courses_list не такая уж 
 хорошая идея. Жить будет легче если передать в def get_courses_list строку с 
 HTML разметкой вместо courses_url. Вуаля, мы решили проблемы еще до их 
 появления на горизонте!
 
 Пойдем дальше. Код другой функции:
-
-    def get_course_info(html):
-        # ...  parsing logic
+```python
+def get_course_info(html):
+	# ...  parsing logic
 
         rating = soup.find_all('div', attrs={'class': 'ratings-text'})
         if rating:  # check if rating is not empty list
@@ -71,29 +74,32 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
         # .... parsing logic
 
         return course_data
+```
 Что может произойти с кодом дальше?
 
  1. Если рейтинга нет — надо искать его на другом сайте.
  2. В xlsx указывать не просто отсутствие рейтинга, а еще на каких сайтах искал.
  3. Отчет о курсах без рейтинга выгружать в дополнительную вкладку xlsx, чтобы 
  удобнее было руками проверять.
+ 
 Для всего этого нужно уметь отличать от прочих ситуацию "рейтинг неизвестен". 
 В Python для этих целей предусмотрено значение rating = None. А строку "No 
 rating yet" можно переместить туда где данные подготавливаются к выводу в xlsx.
 
 Та же функция, часть вторая, последняя:
-
+```python
 def get_course_info(html):
-    # ... more parsing logic is here
+	# ... more parsing logic is here
 
-    # number prefix is usefull for simple sorting data before output to xlsx
-    return {
-        '1_title': title,
-        '2_date': start_date,
-        '3_language': language,
-        '4_weeks': duration,
-        "5_rating": rating
+	# number prefix is usefull for simple sorting data before output to xlsx
+	return {
+		'1_title': title,
+		'2_date': start_date,
+		'3_language': language,
+		'4_weeks': duration,
+		 "5_rating": rating
     }
+```
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
@@ -106,20 +112,13 @@ days_before_start ?
 и повторной отладки всей программы от начала до конца, ведь изменения локальны 
 и изолированы.
 
-## Вместо заключения
-
+# Вместо заключения
 
 В результате мы пришли к ситуации, когда логика обработки данных слабо зависит:
 
 1)от источника данных;
 2)от формата вывода в файл.
-
-
-
 ![alt text](https://devman.org/assets/images/7_40__data_flow.png)
-
-
-
 Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/clean_code/decomposition_pure_functions/), что облегчит
 тестирование и повторное использование.
 
