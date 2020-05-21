@@ -22,14 +22,14 @@
 По условию задачи нужно скачать из сети данных об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
-def get_courses_list(courses_url):
-    html = fetch_html(courses_url)
-    if html:
+    def get_courses_list(courses_url):
+        html = fetch_html(courses_url)
+        if html:
         # .... parsing logic
         return courses_list
-    else:
-        print("can't load list of courses")
-        exit()
+        else:
+            print("can't load list of courses")
+            exit()
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
@@ -58,19 +58,20 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 
 Пойдем дальше. Код другой функции:
 
-def get_course_info(html):
-    # ...  parsing logic
+    def get_course_info(html):
+        # ...  parsing logic
 
-    rating = soup.find_all('div', attrs={'class': 'ratings-text'})
-    if rating:  # check if rating is not empty list
-        rating = rating[0].contents[0].text
-    else:
-        # we wanna be user-friendly, with nice output to xlsx
-        rating = "No rating yet"
+        rating = soup.find_all('div', attrs={'class': 'ratings-text'})
+        if rating:  # check if rating is not empty list
+            rating = rating[0].contents[0].text
+        else:
+            # we wanna be user-friendly, with nice output to xlsx
+            rating = "No rating yet"
 
-    # .... parsing logic
+        # .... parsing logic
 
-    return course_data
+        return course_data
+
 Что может произойти с кодом дальше?
 
 Если рейтинга нет — надо искать его на другом сайте.
@@ -82,18 +83,19 @@ def get_course_info(html):
 rating yet" можно переместить туда где данные подготавливаются к выводу в xlsx.
 
 Та же функция, часть вторая, последняя:
+    
+    def get_course_info(html):
+        # ... more parsing logic is here
 
-def get_course_info(html):
-    # ... more parsing logic is here
-
-    # number prefix is usefull for simple sorting data before output to xlsx
-    return {
-        '1_title': title,
-        '2_date': start_date,
-        '3_language': language,
-        '4_weeks': duration,
-        "5_rating": rating
+        # number prefix is usefull for simple sorting data before output to xlsx
+        return {
+            '1_title': title,
+            '2_date': start_date,
+            '3_language': language,
+            '4_weeks': duration,
+            "5_rating": rating
     }
+
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
@@ -108,16 +110,10 @@ days_before_start ?
 
 Вместо заключения
 
-
 В результате мы пришли к ситуации, когда логика обработки данных слабо зависит:
 
 1)от источника данных;
 2)от формата вывода в файл.
-
-
-
-
-
 
 Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/), что облегчит 
 тестирование и повторное использование.
