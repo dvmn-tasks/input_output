@@ -59,7 +59,7 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 появления на горизонте!
 
 Пойдем дальше. Код другой функции:
-
+```python
 def get_course_info(html):
     # ...  parsing logic
 
@@ -73,6 +73,7 @@ def get_course_info(html):
     # .... parsing logic
 
     return course_data
+```
 Что может произойти с кодом дальше?
 
 Если рейтинга нет — надо искать его на другом сайте.
@@ -84,7 +85,7 @@ def get_course_info(html):
 rating yet" можно переместить туда где данные подготавливаются к выводу в xlsx.
 
 Та же функция, часть вторая, последняя:
-
+```python
 def get_course_info(html):
     # ... more parsing logic is here
 
@@ -96,6 +97,7 @@ def get_course_info(html):
         '4_weeks': duration,
         "5_rating": rating
     }
+```
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
