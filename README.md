@@ -23,7 +23,8 @@
 def get_courses_list(courses_url):
     html = fetch_html(courses_url)
     if html:
-        # .... parsing logic return courses_list
+        # .... parsing logic
+        return courses_list
     else:
         print("can't load list of courses")
         exit()
@@ -65,7 +66,9 @@ def get_course_info(html):
         # we wanna be user-friendly, with nice output to xlsx
         rating = "No rating yet"
 
-    # .... parsing logic return course_data
+    # .... parsing logic
+
+    return course_data
 Что может произойти с кодом дальше?
 
 Если рейтинга нет — надо искать его на другом сайте.
