@@ -57,7 +57,8 @@ HTML разметкой вместо `courses_url`. Вуаля, мы решил�
 
 Пойдем дальше. Код другой функции:
 
-```def get_course_info(html):
+```python
+    def get_course_info(html):
     # ...  parsing logic
 
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
