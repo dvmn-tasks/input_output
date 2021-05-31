@@ -21,6 +21,7 @@
 По условию задачи нужно скачать из сети данных об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
+```
 def get_courses_list(courses_url):
     html = fetch_html(courses_url)
     if html:
@@ -29,6 +30,7 @@ def get_courses_list(courses_url):
     else:
         print("can't load list of courses")
         exit()
+```        
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
@@ -57,7 +59,8 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 
 Пойдем дальше. Код другой функции:
 
-def get_course_info(html):
+```
+def get_course_info(html):  
     # ...  parsing logic
 
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
@@ -70,7 +73,8 @@ def get_course_info(html):
     # .... parsing logic
 
     return course_data
-    
+```    
+
 Что может произойти с кодом дальше?
 
 Если рейтинга нет — надо искать его на другом сайте.
@@ -82,8 +86,9 @@ def get_course_info(html):
 rating yet" можно переместить туда где данные подготавливаются к выводу в xlsx.
 
 Та же функция, часть вторая, последняя:
+```
+def get_course_info(html):  
 
-def get_course_info(html):
     # ... more parsing logic is here
 
     # number prefix is usefull for simple sorting data before output to xlsx
@@ -94,6 +99,7 @@ def get_course_info(html):
         '4_weeks': duration,
         "5_rating": rating
     }
+```
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
