@@ -119,8 +119,10 @@ def get_course_info(html):
 1. от источника данных;
 2. от формата вывода в файл.
 
-![](//https://dvmn.org/filer/canonical/1594117412/678/)
-=======
+
+![](https://raw.githubusercontent.com/Ruslan-Gabitov/input_output/518373bb56c1cf191a4e06ac915661a730d039a6/img/7_40__data_flow.png)
+
+
 Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/), что облегчит 
 тестирование и повторное использование.
 
