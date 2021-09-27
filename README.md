@@ -118,10 +118,9 @@ def get_course_info(html):
 В результате мы пришли к ситуации, когда логика обработки данных слабо зависит:
 
 1. от источника данных;
-
+2. от формата вывода в файл.
 
 ![image](https://dvmn.org/filer/canonical/1594117412/678/)
-2. от формата вывода в файл.
 
 
 Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/), что облегчит
