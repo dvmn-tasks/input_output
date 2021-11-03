@@ -86,8 +86,8 @@ rating yet" можно переместить туда где данные по�
 
 Та же функция, часть вторая, последняя:
 
-def get_course_info(html):
 ```python
+    def get_course_info(html):
     # ... more parsing logic is here
 
     # number prefix is usefull for simple sorting data before output to xlsx
