@@ -1,5 +1,3 @@
-# Markdown syntax guide
-
 # Ввод/вывод vs Обработка данных
 
 
