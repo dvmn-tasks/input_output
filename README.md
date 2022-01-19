@@ -23,14 +23,14 @@
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
 ```python 
- def get_courses_list(courses_url):
-     html = fetch_html(courses_url)
-     if html:
-         # .... parsing logic
-         return courses_list
-     else:
-         print("can't load list of courses")
-         exit()
+def get_courses_list(courses_url):
+    html = fetch_html(courses_url)
+    if html:
+        # .... parsing logic
+        return courses_list
+    else:
+        print("can't load list of courses")
+        exit()
 ```
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
@@ -59,7 +59,7 @@ HTML разметкой вместо `courses_url.` Вуаля, мы решил�
 появления на горизонте!
 
 Пойдем дальше. Код другой функции:
-```
+```python 
 def get_course_info(html):
     # ...  parsing logic
 
@@ -86,7 +86,7 @@ rating yet" можно переместить туда где данные по�
 
 Та же функция, часть вторая, последняя:
 
-```
+```python 
 def get_course_info(html):
     # ... more parsing logic is here
 
