@@ -58,7 +58,7 @@ HTML разметкой вместо `<courses_url.>` Вуаля, мы реши�
 
 Пойдем дальше. Код другой функции:
 
-```def get_course_info(html):
+    def get_course_info(html):
     # ...  parsing logic
 
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
@@ -70,7 +70,7 @@ HTML разметкой вместо `<courses_url.>` Вуаля, мы реши�
 
     # .... parsing logic
 
-    return course_data```
+    return course_data
     
 Что может произойти с кодом дальше?
 
