@@ -1,4 +1,5 @@
-Ввод/вывод vs Обработка данных
+# Ввод/вывод vs Обработка данных
+
 
 
 Ключевой критерий качества кода — это стоимость внесения в него изменений. 
@@ -16,20 +17,21 @@
 Один из часто встречающихся и оправданных приемов — это отделение обработки 
 данных от процесса ввода/вывода. Рассмотрим несколько примеров.
 
-Пример. Подбор онлайн-курса
+
+## Пример. Подбор онлайн-курса
 
 
 По условию задачи нужно скачать из сети данных об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
-def get_courses_list(courses_url):
-    html = fetch_html(courses_url)
-    if html:
-        # .... parsing logic
-        return courses_list
-    else:
-        print("can't load list of courses")
-        exit()
+    def get_courses_list(courses_url):
+        html = fetch_html(courses_url)
+        if html:
+            # .... parsing logic
+            return courses_list
+        else:
+            print("can't load list of courses")
+            exit()
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
@@ -46,7 +48,7 @@ def get_courses_list(courses_url):
 сценариях вывод в консоль зависит от общей логики загрузки данных и 
 многократных вызовов def get_courses_list.
 
-Что еще может потребоваться в скором будущем?
+#### Что еще может потребоваться в скором будущем?
 
 Отладить и покрыть тестами парсер HTML страницы.
 Ускорить работу скрипта, хранить ранее скачанные страницы в кеше на жестком 
@@ -58,20 +60,21 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 
 Пойдем дальше. Код другой функции:
 
-def get_course_info(html):
-    # ...  parsing logic
+    def get_course_info(html):
+        # ...  parsing logic
 
-    rating = soup.find_all('div', attrs={'class': 'ratings-text'})
-    if rating:  # check if rating is not empty list
-        rating = rating[0].contents[0].text
-    else:
-        # we wanna be user-friendly, with nice output to xlsx
-        rating = "No rating yet"
+        rating = soup.find_all('div', attrs={'class': 'ratings-text'})
+        if rating:  # check if rating is not empty list
+            rating = rating[0].contents[0].text
+        else:
+            # we wanna be user-friendly, with nice output to xlsx
+            rating = "No rating yet"
 
-    # .... parsing logic
+        # .... parsing logic
 
-    return course_data
-Что может произойти с кодом дальше?
+        return course_data
+
+#### Что может произойти с кодом дальше?
 
 Если рейтинга нет — надо искать его на другом сайте.
 В xlsx указывать не просто отсутствие рейтинга, а еще на каких сайтах искал.
@@ -106,12 +109,13 @@ days_before_start ?
 и повторной отладки всей программы от начала до конца, ведь изменения локальны 
 и изолированы.
 
-Вместо заключения
+### Вместо заключения
 
 
 В результате мы пришли к ситуации, когда логика обработки данных слабо зависит:
 
 1)от источника данных;
+
 2)от формата вывода в файл.
 
 ![image](https://dvmn.org/filer/canonical/1594117412/678/)
