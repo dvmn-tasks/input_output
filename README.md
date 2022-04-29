@@ -21,7 +21,7 @@
 
 По условию задачи нужно скачать из сети данные об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
-```
+```Python
 def get_courses_list(courses_url):
     html = fetch_html(courses_url)
     if html:
