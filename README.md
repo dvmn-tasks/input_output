@@ -21,7 +21,7 @@
 
 По условию задачи нужно скачать из сети данные об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
-```py
+
 def get_courses_list(courses_url):
     html = fetch_html(courses_url)
     if html:
@@ -30,7 +30,6 @@ def get_courses_list(courses_url):
     else:
         print("can't load list of courses")
         exit()
-```
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
@@ -58,7 +57,7 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 появления на горизонте!
 
 Пойдем дальше. Код другой функции:
-```py
+
 def get_course_info(html):
     # ...  parsing logic
 
@@ -70,7 +69,7 @@ def get_course_info(html):
         rating = "No rating yet"
 
     # .... parsing logic
-```
+
     return course_data
 Что может произойти с кодом дальше?
 
@@ -83,7 +82,7 @@ def get_course_info(html):
 rating yet" можно переместить туда где данные подготавливаются к выводу в xlsx.
 
 Та же функция, часть вторая, последняя:
-```py
+
 def get_course_info(html):
     # ... more parsing logic is here
 
@@ -95,7 +94,6 @@ def get_course_info(html):
         '4_weeks': duration,
         "5_rating": rating
     }
-```
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
