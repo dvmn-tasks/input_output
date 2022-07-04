@@ -22,14 +22,14 @@
 По условию задачи нужно скачать из сети данные об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
-	def get_courses_list(courses_url):
-	    html = fetch_html(courses_url)
-		if html:
-			# .... parsing logic
-			return courses_list
-		else:
-			print("can't load list of courses")
-			exit()
+def get_courses_list(courses_url):
+	html = fetch_html(courses_url)
+	if html:
+		# .... parsing logic
+		return courses_list
+	else:
+		print("can't load list of courses")
+		exit()
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
@@ -87,7 +87,7 @@ rating yet" можно переместить туда где данные по�
 Та же функция, часть вторая, последняя:
 
 def get_course_info(html):
-		# ... more parsing logic is here
+	# ... more parsing logic is here
 
     # number prefix is usefull for simple sorting data before output to xlsx
     return {
