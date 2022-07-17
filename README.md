@@ -119,7 +119,7 @@ def get_course_info(html):
 
 
 
-![alt text](https://devman.org/assets/images/7_40__data_flow.png)
+
 
 ![image](https://dvmn.org/filer/canonical/1594117412/678/)
 
