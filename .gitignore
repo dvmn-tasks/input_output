@@ -1,0 +1,8 @@
+.idea
+.idea/
+.replit
+**/__pycache__
+**/Thumbs.db
+**/.DS_Store
+__pycache__
+__pycache__/
