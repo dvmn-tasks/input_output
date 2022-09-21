@@ -108,4 +108,5 @@ days_before_start ?
 1)от источника данных;
 2)от формата вывода в файл.
 
+<<<<<<< HEAD
 ![image](https://dvmn.org/filer/canonical/1594117412/678/)
