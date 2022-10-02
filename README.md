@@ -118,7 +118,6 @@ def get_course_info(html):
 2)от формата вывода в файл.
 
 
-=======
 
 
 ![image](https://dvmn.org/filer/canonical/1594117412/678/)
