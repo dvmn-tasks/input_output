@@ -61,7 +61,7 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 def get_course_info(html):
     # ...  parsing logic
 
-    rating = soup.find_all('div', attrs={'class': 'ratings-text'})
+    ```rating = soup.find_all('div', attrs={'class': 'ratings-text'})
     if rating:  # check if rating is not empty list
         rating = rating[0].contents[0].text
     else:
@@ -70,7 +70,7 @@ def get_course_info(html):
 
     # .... parsing logic
 
-    return course_data
+    return course_data```
 Что может произойти с кодом дальше?
 
  1. Если рейтинга нет — надо искать его на другом сайте.
@@ -86,14 +86,14 @@ rating yet" можно переместить туда где данные по�
 def get_course_info(html):
     # ... more parsing logic is here
 
-    # number prefix is usefull for simple sorting data before output to xlsx
+    ```# number prefix is usefull for simple sorting data before output to xlsx
     return {
         '1_title': title,
         '2_date': start_date,
         '3_language': language,
         '4_weeks': duration,
         "5_rating": rating
-    }
+    }```
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
