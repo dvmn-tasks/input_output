@@ -61,7 +61,7 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 def get_course_info(html):
     # ...  parsing logic
 
-    ```
+```py
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
     if rating:  # check if rating is not empty list
         rating = rating[0].contents[0].text
@@ -72,7 +72,7 @@ def get_course_info(html):
     # .... parsing logic
 
     return course_data
-    ```
+```
 Что может произойти с кодом дальше?
 
  1. Если рейтинга нет — надо искать его на другом сайте.
@@ -87,7 +87,7 @@ rating yet" можно переместить туда где данные по�
 
 def get_course_info(html):
     # ... more parsing logic is here
-```   
+```py   
     # number prefix is usefull for simple sorting data before output to xlsx
     return {
         '1_title': title,
