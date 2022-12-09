@@ -26,8 +26,8 @@
 def get_courses_list(courses_url):
     html = fetch_html(courses_url)
     if html:
-        *# .... parsing logic
-        *
+        # .... parsing logic
+        
         return courses_list
     else:
         print("can't load list of courses")
@@ -66,16 +66,13 @@ def get_course_info(html):
 
 ```py
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
-    if rating:  *# check if rating is not empty list
-    *
+    if rating:  # check if rating is not empty list
         rating = rating[0].contents[0].text
     else:
-        *# we wanna be user-friendly, with nice output to xlsx
-        *
+        # we wanna be user-friendly, with nice output to xlsx
         rating = "No rating yet"
 
-    *# .... parsing logic
-    *
+    # .... parsing logic
     return course_data
 ```
 Что может произойти с кодом дальше?
@@ -93,8 +90,7 @@ rating yet" можно переместить туда где данные по�
 def get_course_info(html):
     # ... more parsing logic is here
 ```py   
-    *# number prefix is usefull for simple sorting data before output to xlsx                            
-    *
+    # number prefix is usefull for simple sorting data before output to xlsx                            
     return {
         '1_title': title,
         '2_date': start_date,
