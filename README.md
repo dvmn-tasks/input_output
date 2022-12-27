@@ -62,7 +62,7 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 
 ### Пойдем дальше. Код другой функции:
 
-```
+```Python
 def get_course_info(html):
     # ...  parsing logic
 
@@ -90,19 +90,18 @@ rating yet" можно переместить туда где данные по�
 
 ### Та же функция, часть вторая, последняя:
 
-```
-    python
-    def get_course_info(html):
-        # ... more parsing logic is here
+```Python
+def get_course_info(html):
+    # ... more parsing logic is here
 
-        # number prefix is usefull for simple sorting data before output to xlsx
-        return {
-            '1_title': title,
-            '2_date': start_date,
-            '3_language': language,
-            '4_weeks': duration,
-            "5_rating": rating
-        }
+    # number prefix is usefull for simple sorting data before output to xlsx
+    return {
+        '1_title': title,
+        '2_date': start_date,
+        '3_language': language,
+        '4_weeks': duration,
+        "5_rating": rating
+    }
 ```
 
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
