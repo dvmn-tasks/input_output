@@ -108,3 +108,4 @@ days_before_start ?
 1)от источника данных;
 2)от формата вывода в файл.
 
+![image](https://dvmn.org/media/filer_public/6e/3b/6e3b1701-1961-4cc1-8707-59caf843c7a6/7_40__data_flow.png)
