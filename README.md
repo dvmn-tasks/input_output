@@ -22,21 +22,24 @@
 По условию задачи нужно скачать из сети данные об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
-def get_courses_list(courses_url):
-    html = fetch_html(courses_url)
-    if html:
-        # .... parsing logic
-        return courses_list
-    else:
-        print("can't load list of courses")
-        exit()
+
+    def get_courses_list(courses_url):
+        html = fetch_html(courses_url)
+        if html:
+            # .... parsing logic
+            return courses_list
+        else:
+            print("can't load list of courses")
+            exit()
+            
+            
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
-В случае сетевой ошибки взять паузу в 10 секунд и повторить попытку, затем 
+0. В случае сетевой ошибки взять паузу в 10 секунд и повторить попытку, затем 
 подождать еще 30 секунд и так далее.
-В случае если адрес недоступен - постучаться по другому url в зеркало сайта.
-В случае ошибки сделать запись в лог и взять данные из ранее подготовленного 
+0. В случае если адрес недоступен - постучаться по другому url в зеркало сайта.
+0. В случае ошибки сделать запись в лог и взять данные из ранее подготовленного 
 кеша.
 Как все это сделать когда def get_courses_list сама завершает программу ?! От 
 вызова exit() надо отказаться. Можно выбросить исключение и таким образом 
@@ -58,19 +61,20 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 
 Пойдем дальше. Код другой функции:
 
-def get_course_info(html):
-    # ...  parsing logic
+    def get_course_info(html):
+        # ...  parsing logic
 
-    rating = soup.find_all('div', attrs={'class': 'ratings-text'})
-    if rating:  # check if rating is not empty list
-        rating = rating[0].contents[0].text
-    else:
-        # we wanna be user-friendly, with nice output to xlsx
-        rating = "No rating yet"
+        rating = soup.find_all('div', attrs={'class': 'ratings-text'})
+        if rating:  # check if rating is not empty list
+            rating = rating[0].contents[0].text
+        else:
+            # we wanna be user-friendly, with nice output to xlsx
+            rating = "No rating yet"
 
-    # .... parsing logic
+        # .... parsing logic
 
-    return course_data
+        return course_data
+        
 ## Что может произойти с кодом дальше?
 
 Если рейтинга нет — надо искать его на другом сайте.
