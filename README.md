@@ -58,9 +58,8 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 появления на горизонте!
 
 ## Пойдем дальше. Код другой функции:
-
-def get_course_info(html):
 ```
+def get_course_info(html):
     # ...  parsing logic
 
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
@@ -85,9 +84,8 @@ def get_course_info(html):
 rating yet" можно переместить туда где данные подготавливаются к выводу в xlsx.
 
 #### Та же функция, часть вторая, последняя:
-
-def get_course_info(html):
 ```
+def get_course_info(html):
     # ... more parsing logic is here
 
     # number prefix is usefull for simple sorting data before output to xlsx
