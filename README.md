@@ -110,3 +110,4 @@ days_before_start ?
 * от источника данных;
 * от формата вывода в файл.
 
+![image](https://dvmn.org/filer/canonical/1594117412/678/)
