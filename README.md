@@ -63,7 +63,7 @@ def get_courses_list(courses_url):
 HTML разметкой вместо `courses_url`. Вуаля, мы решили проблемы еще до их 
 появления на горизонте!
 
-## Пойдем дальше. Код другой функции:
+**Пойдем дальше. Код другой функции:**
 ```
 def get_course_info(html):
     # ...  parsing logic
