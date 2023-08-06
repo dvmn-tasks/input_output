@@ -113,4 +113,6 @@ def get_course_info(html):
 
 * от источника данных;
 * от формата вывода в файл.
+![Alt text](https://dvmn.org/filer/canonical/1594117412/678/)
 
+Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/), что облегчит тестирование и повторное использование.
