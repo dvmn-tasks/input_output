@@ -60,10 +60,10 @@ HTML разметкой вместо `courses_url`. Вуаля, мы решил�
 появления на горизонте!
 
 Пойдем дальше. Код другой функции:
-
+```python
 def get_course_info(html):
     # ...  parsing logic
-```python 
+ 
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
     if rating:  # check if rating is not empty list
         rating = rating[0].contents[0].text
