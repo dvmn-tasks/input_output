@@ -113,3 +113,5 @@ def get_course_info(html):
 1)от источника данных;
 2)от формата вывода в файл.
 
+![alt text](https://dvmn.org/filer/canonical/1594117412/678/)
+
