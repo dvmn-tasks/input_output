@@ -81,7 +81,7 @@ rating yet"` можно переместить туда где данные по
 
 Та же функция, часть вторая, последняя:
 
-```
+```python
 def get_course_info(html):
     # ... more parsing logic is here
 
