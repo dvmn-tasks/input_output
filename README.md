@@ -16,14 +16,14 @@
 По условию задачи нужно скачать из сети данные об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
-def get_courses_list(courses_url):
+`def get_courses_list(courses_url):
     html = fetch_html(courses_url)
     if html:
         # .... parsing logic
         return courses_list
     else:
         print("can't load list of courses")
-        exit()
+        exit()`
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
@@ -52,8 +52,8 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 
 Пойдем дальше. Код другой функции:
 
-def get_course_info(html):
-    # ...  parsing logic
+`def get_course_info(html):
+    # ...  parsing logic`
 
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
     if rating:  # check if rating is not empty list
@@ -77,8 +77,8 @@ rating yet" можно переместить туда где данные по�
 
 Та же функция, часть вторая, последняя:
 
-def get_course_info(html):
-    # ... more parsing logic is here
+`def get_course_info(html):
+    # ... more parsing logic is here`
 
     # number prefix is usefull for simple sorting data before output to xlsx
     return {
