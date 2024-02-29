@@ -13,14 +13,14 @@
 По условию задачи нужно скачать из сети данные об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
-`def get_courses_list(courses_url):
-    html = fetch_html(courses_url)
+```def get_courses_list(courses_url):```
+    ```html = fetch_html(courses_url)
     if html:
         # .... parsing logic
         return courses_list
     else:
         print("cant load list of courses")
-        exit()`
+        exit()```
         
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
@@ -50,21 +50,17 @@
 Вуаля, мы решили проблемы еще до их появления на горизонте!
 
 Пойдем дальше. Код другой функции:
+```def get_course_info(html):
+    # ...  parsing logic
 
-`def get_course_info(html):
-    # ...  parsing logic`
-
-    rating = soup.find_all('div', attrs={'class': 'ratings-text'})
+   rating = soup.find_all('div', attrs={'class': 'ratings-text'})
     if rating:  # check if rating is not empty list
         rating = rating[0].contents[0].text
     else:
         # we wanna be user-friendly, with nice output to xlsx
         rating = "No rating yet"
-
-    # .... parsing logic
-
-    return course_data
-    
+         # .... parsing logic
+    return course_data```
 Что может произойти с кодом дальше?
 
 1. Если рейтинга нет — надо искать его на другом сайте.
