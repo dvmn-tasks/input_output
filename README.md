@@ -54,10 +54,9 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 
 Пойдем дальше. Код другой функции:
 
+```python
 def get_course_info(html):
     # ...  parsing logic
-    
-    ```python
 
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
     if rating:  # check if rating is not empty list
@@ -69,7 +68,7 @@ def get_course_info(html):
     # .... parsing logic
 
     return course_data
-    ```
+```
 # Что может произойти с кодом дальше?
 
 Если рейтинга нет — надо искать его на другом сайте.
