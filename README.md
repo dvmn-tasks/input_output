@@ -16,10 +16,15 @@
 По условию задачи нужно скачать из сети данные об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
-def get_courses_list(courses_url):html = fetch_html(courses_url) if html:
-# .... parsing logic return courses_list else: print("can't load list of 
-courses") exit() Теперь примерим на себя роль провидца и подумаем какой 
-функционал потребуется через месяц:
+def get_courses_list(courses_url):
+	html = fetch_html(courses_url) 
+	if html:
+		#... parsing logic
+		return courses_list 
+	else: print("can't load list of courses") 
+		exit() 
+		
+Теперь примерим на себя роль провидца и подумаем какой функционал потребуется через месяц:
 
 В случае сетевой ошибки взять паузу в 10 секунд и повторить попытку, затем 
 подождать еще 30 секунд и так далее. В случае если адрес недоступен -
