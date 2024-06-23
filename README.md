@@ -22,13 +22,14 @@
 По условию задачи нужно скачать из сети данные об онлайн-курсах, выбрать из 
 них лучшие и сохранить результат в xlsx файл. Вот фрагмент кода:
 
-```def get_courses_list(courses_url):
-        html = fetch_html(courses_url)
-		if html:
-		    # .... parsing logic
-            return courses_list
-		else:
-     		print("can't load list of courses")
+```
+def get_courses_list(courses_url):
+    html = fetch_html(courses_url)
+	if html:
+		# .... parsing logic
+        return courses_list
+	else:
+     	print("can't load list of courses")
 		exit()
 ```
 
