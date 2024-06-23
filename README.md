@@ -29,7 +29,7 @@
             return courses_list
 		else:
      		print("can't load list of courses")
-			exit()
+		exit()
 ```
 
 			
